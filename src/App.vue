@@ -8,25 +8,19 @@
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-#nav {
-  padding: 30px;
+@Component({
+  template: '<button @click="onClick">Click!</button>'
+})
+export default class MyComponent extends Vue {
+  message: string = 'Hello!';
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  onClick(): void {
+    window.alert(this.message);
   }
 }
-</style>
+</script>
+
+<style lang="scss"></style>

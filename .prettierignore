@@ -1,0 +1,12 @@
+node_modules/
+package.json
+package-lock.json
+src/route/index.ts
+tsconfig.json
+.eslintrc.js
+.eslintignore
+.prettierrc
+babel.config.js
+postcss.config.js
+vue.config.ts
+jest.config.js

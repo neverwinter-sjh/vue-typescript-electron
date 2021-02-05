@@ -1,31 +1,35 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
+    es6: true,
   },
   extends: [
-    "plugin:vue/essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-    "@vue/prettier",
-    "@vue/prettier/@typescript-eslint"
+    'plugin:vue/essential',
+    '@vue/typescript',
+    'plugin:prettier/recommended'
   ],
-  parserOptions: {
-    ecmaVersion: 2020
-  },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
+    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "class-methods-use-this": 0,
+    'max-len': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }], // for (let i = 0; i < 10; i++)
+    'no-underscore-dangle': ['error', { allow: ['_data', '_name'] }], // for this._data,
+    'no-unused-vars': 'off',
+
+    'prettier/prettier': [
+      'error',
+      {
+          endOfLine: 'auto',
+      },
+    ],
+    'import/no-extraneous-dependencies': 'off'
   },
-  overrides: [
-    {
-      files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)"
-      ],
-      env: {
-        jest: true
-      }
-    }
-  ]
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
 };
